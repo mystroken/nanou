@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
   outputPath: path.resolve(__dirname, 'dist')
@@ -62,7 +61,6 @@ module.exports = {
     }),
     new MiniCssExtractPlugin(),
     new OptimizeCssAssetsPlugin(),
-    new Visualizer({ filename: './statistics.html' }),
-    new CopyWebpackPlugin([ { from: 'src/static' } ])
+    new Visualizer({ filename: './statistics.html' })
   ]
 }
