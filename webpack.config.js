@@ -45,22 +45,20 @@ module.exports = {
     ]
   },
   optimization: {
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    },
-    minimizer: [new UglifyJsPlugin()],
+    minimizer: [new UglifyJsPlugin()]
   },
   plugins: [
     new HtmlWebpackPlugin({ 
       template: './src/index.html', 
-      filename: './index.html' 
+      filename: './index.html',
+      minify: {
+        removeComments: true,
+        removeTagWhitespace: true,
+        collapseWhitespace: true,
+        conservativeCollapse: true,
+        minifyCSS: true,
+        minifyJS: true
+      }
     }),
     new MiniCssExtractPlugin(),
     new OptimizeCssAssetsPlugin(),
